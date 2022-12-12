@@ -17,3 +17,5 @@ Nuvens, hosts e VMs só podem ser removidos se estiverem vazios.
 processos entre VMs. Deve ser solicitado a renomeação de
 elementos caso existam outros com o mesmo nome no mesmo
 contêiner.
+
+![image](https://user-images.githubusercontent.com/39846852/207113906-853d0365-94c2-4d91-84b1-3f19c16f23f9.png)

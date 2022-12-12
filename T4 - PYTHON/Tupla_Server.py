@@ -206,15 +206,16 @@ class Server(object):
 
         return list(auxNuvens[1])
 
-    def addNewHost(self, nuvemName, addnewHost):
+    def addNewHost(self, nuvemName, newHost):
         host = self.space.inp(("Host", nuvemName, object))
         aux = list(host[2])
         for i in aux:
-            if i == addnewHost:
+            if i == newHost:
                 return False
 
-        aux.append(addnewHost)
+        aux.append(newHost)
         self.space.out(("Host", nuvemName, tuple(aux)))
+        self.space.out(("Vm", newHost, tuple([])))
         return True
     
     def addNewVm(self, hostName, addnewVm):
@@ -227,6 +228,7 @@ class Server(object):
 
         aux.append(addnewVm)
         self.space.out(("Vm", hostName, tuple(aux)))
+        self.space.out(("Proc", addnewVm, tuple([])))
         return True
     
     def addNewProc(self, vmName, addnewProc):
@@ -530,7 +532,7 @@ class ServerScreen:
         lblHost = Label(newWindow, text="Nome Host",  bg='#70ad47', font='bold')
         lblHost.place(x=20, y=50)
         nomeHost = Entry(newWindow)
-        nomeHost.place(x=100, y=50, width=180, height=20)
+        nomeHost.place(x=110, y=50, width=180, height=20)
 
         btnHost = Button(newWindow, text="Remover", command=lambda: self.rmHost(nameNuvem, nomeHost.get(), newWindow, oldWindow), width=10, height=1)
         btnHost.place(x=200, y=180)
